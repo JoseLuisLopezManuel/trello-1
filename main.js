@@ -134,11 +134,13 @@ Trello.prototype.addCard = function (name, description, listId, callback) {
     var query = this.createQuery();
     query.name = name;
     query.idList = listId;
-
+    console.log(query.name);
+    console.log(query.idList);
     if (description !== null)
         query.desc = description;
 
     return makeRequest(rest.post, this.uri + '/1/cards', {query: query}, callback);
+    
 };
 
 Trello.prototype.addCardWithExtraParams = function(name, extraParams, listId, callback) {
